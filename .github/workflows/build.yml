@@ -1,12 +1,11 @@
-name: Build .NET 10 App
+name: Build and Test .NET 10 App
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
-    # This tells GitHub to use YOUR Ubuntu machine
+  build-and-test:
     runs-on: self-hosted
 
     steps:
@@ -15,3 +14,7 @@ jobs:
 
     - name: Build the project
       run: dotnet build --configuration Release
+
+    # NEW: This runs the tests we worked on yesterday
+    - name: Run Tests
+      run: dotnet test --no-build --configuration Release
