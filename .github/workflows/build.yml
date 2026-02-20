@@ -1,0 +1,17 @@
+name: Build .NET 10 App
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # This tells GitHub to use YOUR Ubuntu machine
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build the project
+      run: dotnet build --configuration Release
