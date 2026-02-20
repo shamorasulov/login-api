@@ -18,3 +18,8 @@ jobs:
     # NEW: This runs the tests we worked on yesterday
     - name: Run Tests
       run: dotnet test --no-build --configuration Release
+      
+    - name: Build Docker Image
+      run: |
+        docker build -t login-api:latest .
+        echo "Docker image built successfully"
